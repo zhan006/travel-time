@@ -1,0 +1,17 @@
+#record{position:relative;margin:0;margin-right:0px;width:70px;height:70px;top:50px;left:70px;display:none}
+#barchart{position:absolute;margin:auto;top:50%;left:3%;height:50%;width:50%}
+#pyimg{position:relative;left:10%}
+#linechart{position:absolute;margin:auto;top:2%;left:3%;height:47%;width:50%}
+#title{font-size:25px;text-align:center;margin-bottom:0}
+#bars{position:absolute;bottom:0;height:88%;width:100%}
+#ticks{position:absolute;left:13%;bottom:0}
+.date{float:left;margin:0px 25px;bottom:0;font-size:30px}
+svg{display:block;margin-top:36.1%}
+#ave>svg{background:blue}
+#peak>svg{background:red}
+.avemarks{position:absolute;left:20.1%;margin:0 0;height:100%;top:-20%;}
+#avemarks{-webkit-transform:rotate(90deg);margin:480% 0;position:relative;}
+#ave{-webkit-transform:rotate(-90deg);height:100px;width:100px;position:absolute;bottom:30px;left:12%;z-index:101;}
+.peakmarks{position:absolute;left:24.1%;margin:0 0;height:100%;top:-20%}
+#peakmarks{-webkit-transform:rotate(90deg);margin:480% 0;position:relative}
+#peak{-webkit-transform:rotate(-90deg);height:100px;width:100px;position:absolute;bottom:30px;left:12%;z-index:100}

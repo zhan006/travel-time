@@ -1,0 +1,83 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <title>Baidu Map </title>     
+    <link rel='stylesheet' type="text/css" href="./css/baidumap.css"></link>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/map.js"></script>
+    <style type="text/css">  
+        html{height:100%}  
+        body{height:100%;margin:0px;padding:0px}  
+        #container{width:45%;height:100%;float:right;top:0px}  
+    </style>  
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6AbTQvsiGWMPUEGGSpiskGQhY2zembge"></script>
+
+</head>  
+<body>
+<div id="record">
+
+</div>
+<div id="linechart">
+<img id="pyimg" src='./timecost.jpg'>
+</div>
+<div id="barchart">
+<p id="title">Peak And Average Timecost</p>
+<div id="bars">
+<div id="ave">
+<div class='avemarks'>
+
+</div>
+
+</div>
+<div id="peak">
+<div class='peakmarks'>
+
+</div>
+
+</div>
+<div id="ticks">
+<p class="date">Mon</p>
+<p class="date">Tue</p>
+<p class="date">Wed</p>
+<p class="date">Thu</p>
+<p class="date">Fri</p>
+<p class="date">Sat</p>
+<p class="date">Sun</p>
+</div>
+</div>
+
+</div>
+<div id="container">
+<script>
+var x=116.5419743
+var y=40.0086486
+var ggpoint=new BMap.Point(x,y)
+var map = new BMap.Map("container");          // 创建地图实例  
+var point = new BMap.Point(116.512, 38.808);  // 创建点坐标  
+map.centerAndZoom(ggpoint, 12);                 // 初始化地图，设置中心点坐标和地图级别 
+map.enableScrollWheelZoom(true);
+var time
+var output='time costs from R&D center to Gateway is '
+var searchcomplete=function(results){
+if (transit.getStatus()!=BMAP_STATUS_SUCCESS){return ;}
+var plan=results.getPlan(0)
+time=plan.getDuration(true)
+seconds=plan.getDuration(false)
+output+=plan.getDuration(true)+"\n";
+output+="the whole distance is "
+output+=plan.getDistance(true)+"\n"
+
+
+}
+
+var opts={width:250,height:100,title:'costs'}
+
+var transit=new BMap.DrivingRoute(map,{renderOptions:{map:map},onSearchComplete:searchcomplete,onPolylinesSet:function(){setTimeout(function(){var infowindow=new BMap.InfoWindow(output,opts);map.openInfoWindow(infowindow,map.getCenter());record(seconds);},"1000");}});
+transit.search("北京宝马研发中心","佳程广场")
+
+</script>
+</div>
+</body>  
+</html>
