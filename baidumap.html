@@ -75,7 +75,7 @@ output+=plan.getDistance(true)+"\n"
 var opts={width:250,height:100,title:'costs'}
 
 var transit=new BMap.DrivingRoute(map,{renderOptions:{map:map},onSearchComplete:searchcomplete,onPolylinesSet:function(){setTimeout(function(){var infowindow=new BMap.InfoWindow(output,opts);map.openInfoWindow(infowindow,map.getCenter());record(seconds);},"1000");}});
-transit.search("北京宝马研发中心","佳程广场")
+transit.search("place1","place2")
 
 </script>
 </div>
