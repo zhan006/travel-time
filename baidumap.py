@@ -9,7 +9,7 @@ import json
 #get a list of recorded data
 class bdmap(object):
     def __init__(self):
-        self.url='/home/pi/fortest.html'
+        self.url='yourworkpath'
         self.data=self.getdata()
         self.avetime=self.rtaverage()
         self.timeline=self.timeline()
