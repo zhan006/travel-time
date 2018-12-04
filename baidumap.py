@@ -34,10 +34,11 @@ class bdmap(object):
         data=soup.find('div',{'id':'record'}).get_text()
         minute=self.sectomin(int(data))
         return minute
-    #write to python file
+    #transfer seconds to minutes
     def sectomin(self,sec):
         minutes=sec//60
         return minutes
+    #write to python file
     def writedata(self,data):
         with open('data.py','w') as d:
             d.write('record='+str(data))
@@ -78,7 +79,7 @@ class bdmap(object):
             record[date]={}
             record[date][hour]=[self.getweb()]
         self.writedata(record)
-        
+    #initialize a n-lenth list with 0 element
     def initlist(self,n):
         lst=[0 for i in range(n)]
         return lst
@@ -127,6 +128,7 @@ class bdmap(object):
             return int(i)
         except:
             return 0
+ #visualize travel time
     def makegraph(self):
         fig=plt.figure()
         fig.suptitle('Hourly Timecosts',fontsize=25,fontweight='bold',color='green')
